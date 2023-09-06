@@ -6,9 +6,12 @@ export default function Page() {
     return (
         <div className={style.wrap}>
             <main className={style.mainWrap}>
-                <h1>終電なくてももう安心。</h1>
-                <p>UniRideで割り勘しちゃおう。</p>
-                <p>好きなスポットを選んでマッチングしよう。</p>
+                <div className={style.titleWrap}>
+                    <h1>終電なくてももう安心。</h1>
+                    <p>UniRideで割り勘しちゃおう。</p>
+                    <p>好きなスポットを選んでマッチングしよう。</p>
+
+                </div>
 
             </main>
             <Footer />
