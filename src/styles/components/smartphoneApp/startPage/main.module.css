@@ -1,0 +1,15 @@
+.wrap {
+    border: 1px solid #000;
+    max-width: 600px;
+    background: radial-gradient(rgb(22, 135, 237), rgb(47, 91, 135));
+    height: 100vh;
+}
+
+.mainWrap {
+    color: #fefefe;
+    text-align: center;
+}
+
+.mainWrap h1 {
+    font-size: 1.5rem;
+}
