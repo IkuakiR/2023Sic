@@ -17,3 +17,18 @@
     border: none;
     color: #fff;
 }
+
+.disabledButton {
+    width: calc(100% - 4rem);
+    height: 2.5rem;
+    border-radius: 1.5rem;
+    border: none;
+    font-size: 1rem;
+    margin: 0 auto;
+    display: block;
+    font-weight: bold;
+    background: #fff;
+    color: #3570c6;
+    border: none;
+    opacity: 0.4;
+}

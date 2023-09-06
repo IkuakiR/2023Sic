@@ -1,37 +1,46 @@
 import { Frame } from '@/components/smartphoneApp/common/Frame'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Button from '@/components/smartphoneApp/common/Button'
 import style from '@/styles/components/smartphoneApp/startPage/accountRegistration/account.module.css'
 
 function PhoneNumber() {
-    const [phoneNumber, setPhoneNumber] = useState('');
+    // 電話番号のstate
+    const [phoneNumber, setPhoneNumber] = useState<string>('');
 
-    const handleInputChange = (e) => {
-        let input = e.target.value;
-        // 半角数字のみを取得
-        input = input.replace(/[^\d]/g, '');
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value.replace(/[^\d]/g, '');
 
-        // フォーマット: "080 1234 5678"
-        if (input.length >= 4) {
-            input = input.slice(0, 3) + ' ' + input.slice(3);
-        }
-        if (input.length >= 9) {
-            input = input.slice(0, 8) + ' ' + input.slice(8);
-        }
+        // 11桁の電話番号09000000000を090 0000 0000の形式に整形する
+        const format = (str: string) => [
+            // 最初の3桁を切り出し
+            str.slice(0, 3),
+            // 次の4桁を切り出し
+            str.slice(3, 7),
+            // 最後の4桁を切り出し
+            str.slice(7, 11),
+            // undefinedや空の文字列を取り除き、切り出した3パーツを半角スペースで結合
+        ].filter(Boolean).join(' ');
 
-        setPhoneNumber(input);
+        // stateの変更にはset~~を用いる。
+        setPhoneNumber(format(value.slice(0, 11)));
     };
+
 
     return (
         <div className={style.wrap}>
             <h2 className={style.title}>UniRideをはじめよう</h2>
             <p className={style.text}>日本国内でSMS受信可能な<br />
                 電話番号を入力してください。</p>
-            <input type="number"
+            <input
+                type="text"
+                placeholder="080 1234 5678"
                 value={phoneNumber}
                 onChange={handleInputChange}
-                placeholder="080 1234 5678" className={style.phoneNumber} />
-            <Button disabled={false} text={'認証コードを受け取る'} mainColor={false} link={''} />
+                maxLength={13}
+                className={style.phoneNumber}
+            />
+
+            <Button disabled={phoneNumber.length === 13 ? false : true} text={'認証コードを受け取る'} mainColor={false} link={''} />
         </div>
     )
 }

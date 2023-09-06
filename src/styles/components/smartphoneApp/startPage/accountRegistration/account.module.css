@@ -29,6 +29,7 @@
     border-bottom: 2px solid #ffffff75;
     font-size: 1.8rem;
     text-align: center;
+    color: #fff;
 }
 
 .wrap .phoneNumber:focus {
