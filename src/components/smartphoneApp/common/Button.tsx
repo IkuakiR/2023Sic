@@ -4,7 +4,8 @@ import style from '@/styles/components/smartphoneApp/common/button.module.css'
 export type ButtonProps = {
     disabled: boolean,
     text: string,
-    mainColor: boolean
+    mainColor: boolean,
+    link: string
 }
 
 export default function Button(props: ButtonProps) {
@@ -14,9 +15,15 @@ export default function Button(props: ButtonProps) {
 
     let className = `${baseClassName} ${additionalClassName}`;
 
+    const handleClick = () => {
+        if (!props.disabled) {
+            window.location.href = props.link; // 画面遷移したいURLに書き換えてください
+        }
+    }
+
     return (
         <>
-            <button className={className.trim()}>{props.text}</button>
+            <button className={className.trim()} onClick={handleClick}>{props.text}</button>
         </>
     )
 }

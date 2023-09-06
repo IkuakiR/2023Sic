@@ -7,9 +7,13 @@
     margin: 0 auto;
     display: block;
     font-weight: bold;
+    background: #fff;
+    color: #3570c6;
+    border: none;
 }
 
 .mainColor {
     background: #3570C6;
+    border: none;
     color: #fff;
 }

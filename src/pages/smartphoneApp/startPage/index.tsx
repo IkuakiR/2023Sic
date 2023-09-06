@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import Footer from '@/components/smartphoneApp/startPage/Footer'
 import style from '@/styles/components/smartphoneApp/startPage/main.module.css'
+import { Frame } from '@/components/smartphoneApp/common/Frame'
 
 export default function Page() {
     return (
-        <div className={style.wrap}>
+        <Frame>
             <main className={style.mainWrap}>
                 <div className={style.titleWrap}>
                     <h1>終電なくてももう安心。</h1>
@@ -15,6 +16,6 @@ export default function Page() {
 
             </main>
             <Footer />
-        </div>
+        </Frame>
     )
 }

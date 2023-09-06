@@ -1,0 +1,41 @@
+.wrap {
+    color: #fff;
+}
+
+.wrap .title {
+    padding: 0;
+    margin: 0 0 2rem;
+    text-align: center;
+}
+
+.wrap .text {
+    text-align: center;
+}
+
+.wrap .phoneNumber {
+    display: block;
+    width: calc(100% - 4rem);
+    margin: 0 auto 2.25rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #ffffff75;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.wrap .phoneNumber:focus {
+    outline: none;
+}
+
+.wrap .phoneNumber::placeholder {
+    color: #ffffff75;
+}
+
+.prev {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    display: block;
+    margin: 2.2rem;
+}
