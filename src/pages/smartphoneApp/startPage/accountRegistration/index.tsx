@@ -3,7 +3,12 @@ import { useState, useEffect } from 'react'
 import Button from '@/components/smartphoneApp/common/Button'
 import style from '@/styles/components/smartphoneApp/startPage/accountRegistration/account.module.css'
 
-function PhoneNumber() {
+export type name = {
+    pageState: number,
+    setPageState: React.Dispatch<React.SetStateAction<number>>
+}
+
+function PhoneNumber(props: name) {
     // 電話番号のstate
     const [phoneNumber, setPhoneNumber] = useState<string>('');
 
@@ -25,6 +30,10 @@ function PhoneNumber() {
         setPhoneNumber(format(value.slice(0, 11)));
     };
 
+    // 何らかの処理、例えばページ状態を1増やす
+    const handleSomething = () => {
+        props.setPageState(props.pageState + 1);
+    };
 
     return (
         <div className={style.wrap}>
@@ -40,17 +49,35 @@ function PhoneNumber() {
                 className={style.phoneNumber}
             />
 
-            <Button disabled={phoneNumber.length === 13 ? false : true} text={'認証コードを受け取る'} mainColor={false} link={''} />
+            <Button disabled={phoneNumber.length === 13 ? false : true}
+                text={'認証コードを受け取る'}
+                mainColor={false}
+                link={''}
+                onClick={() => { handleSomething }} />
+        </div>
+    )
+}
+
+function Authentication() {
+
+    return (
+        <div className={style.wrap}>
+            <h2 className={style.title}>認証コードを入力</h2>
+            <p className={style.text}>080-1234-5678 にSMSで送信された<br />
+                4桁の認証コードを入力して下さい。</p>
         </div>
     )
 }
 
 export default function Page() {
+    const [pageState, setPageState] = useState<number>(0)
+
     return (
         <Frame>
+            <p>{pageState}</p>
             <button className={`${style.prev} pi pi-angle-left`}>
             </button>
-            <PhoneNumber />
+            <PhoneNumber pageState={pageState} setPageState={setPageState} />
         </Frame>
     )
 }

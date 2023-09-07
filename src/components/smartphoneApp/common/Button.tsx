@@ -5,7 +5,8 @@ export type ButtonProps = {
     disabled: boolean,
     text: string,
     mainColor: boolean,
-    link: string
+    link?: string,
+    onClick?: () => void;
 }
 
 export default function Button(props: ButtonProps) {
@@ -17,7 +18,7 @@ export default function Button(props: ButtonProps) {
 
     const handleClick = () => {
         if (!props.disabled) {
-            window.location.href = props.link; // 画面遷移したいURLに書き換えてください
+            window.location.href = props.link
         }
     }
 

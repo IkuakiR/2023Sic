@@ -11,6 +11,7 @@
 
 .wrap .text {
     text-align: center;
+    line-height: 2;
 }
 
 .wrap input[type="number"]::-webkit-outer-spin-button,
