@@ -4,7 +4,9 @@ import style from "@/styles/components/smartphoneApp/startPage/accountRegistrati
 export function Phone() {
   return (
     <>
-      <div className={style.phone}></div>
+      <div className={style.phone}>
+        <img src="/img/Phone/phone_img.png" alt="けいたい" />
+      </div>
     </>
   );
 }
